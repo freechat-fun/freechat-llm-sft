@@ -2,6 +2,6 @@ annotations:
   licenses: Apache-2.0
 appVersion: latest
 description: A Helm chart for LLaMA-Factory
-name: freechat-llama-factory
+name: freechat-llm-sft
 type: application
 version: 0.1.0
