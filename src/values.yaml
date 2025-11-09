@@ -1,0 +1,69 @@
+annotations:
+  group: fun.freechat
+autoscaling:
+  enabled: false
+cert:
+  manager:
+    namespace: cert-manager
+    version: v1.16.1
+gpu:
+  enabled: true
+  type: 'nvidia'
+  number: 1
+image:
+  repository: hiyouga/llamafactory
+ingress:
+  enabled: false
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: freechat-llm-sft-letsencrypt-http01
+  hosts:
+    - host: sft.freechat.fun
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    enabled: false
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  annotations:
+    helm.sh/resource-policy: keep
+  size: 120Gi
+  storageClass: default
+pdb:
+  create: true
+  minAvailable: ''
+  maxUnavailable: ''
+podSecurityContext:
+  fsGroup: 10000
+replicaCount: 1
+livenessProbe:
+  enabled: true
+  tcpSocket:
+    port: 7860
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+readinessProbe:
+  enabled: false
+  tcpSocket:
+    port: 7860
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+resources:
+  requests: {}
+  limits: {}
+service:
+  enabled: true
+  port: 7860
+  type: ClusterIP
+serviceAccount:
+  create: true
+  automount: false
