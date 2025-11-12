@@ -11,7 +11,7 @@ gpu:
   type: 'nvidia'
   number: 1
 image:
-  repository: hiyouga/llamafactory
+  repository: freechatfun/freechat-llama-factory
 ingress:
   enabled: false
   className: nginx
@@ -36,8 +36,6 @@ pdb:
   create: true
   minAvailable: ''
   maxUnavailable: ''
-podSecurityContext:
-  fsGroup: 10000
 replicaCount: 1
 livenessProbe:
   enabled: true

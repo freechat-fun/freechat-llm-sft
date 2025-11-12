@@ -2,7 +2,10 @@
 
 PROJECT_PATH=$(cd $(dirname ${BASH_SOURCE[0]})/..; pwd)
 PROJECT_NAME=${PROJECT_PATH##*/}
-HELM_CONFIG_HOME=${PROJECT_PATH}/src
+
+DOCKER_CONFIG_HOME=${PROJECT_PATH}/configs/docker
+HELM_CONFIG_HOME=${PROJECT_PATH}/configs/helm
+
 KUBE_CONFIG=${HELM_CONFIG_HOME}/kube-private.conf
 HELM_CONFIG=${HELM_CONFIG_HOME}/values-private.yaml
 NAMESPACE=
@@ -88,8 +91,10 @@ check_kubectl() {
   which kubectl &>/dev/null || die "ERROR: You need to have the kubectl toolset in your PATH."
 }
 
+check_docker() {
+  which docker &>/dev/null || die "ERROR: You need to have the docker toolset in your PATH."
+}
+
 check_helm() {
   which helm &>/dev/null || die "ERROR: You need to have the helm toolset in your PATH."
 }
-
-
