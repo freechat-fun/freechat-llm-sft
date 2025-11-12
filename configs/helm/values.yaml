@@ -12,6 +12,7 @@ gpu:
   number: 1
 image:
   repository: freechatfun/freechat-llama-factory
+  tag: cuda-latest
 ingress:
   enabled: false
   className: nginx

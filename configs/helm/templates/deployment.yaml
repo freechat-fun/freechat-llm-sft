@@ -103,6 +103,9 @@ spec:
               mountPath: /root/.cache/huggingface
               subPath: hf_cache
             - name: data
+              mountPath: /root/.triton/autotune
+              subPath: autotune
+            - name: data
               mountPath: /app/shared_data
               subPath: shared_data
             - name: data
