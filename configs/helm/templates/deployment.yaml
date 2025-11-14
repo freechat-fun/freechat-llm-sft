@@ -86,11 +86,11 @@ spec:
             {{- $ressources := deepCopy (dict "limits" $limits) | mergeOverwrite .Values.resources }}
             {{- toYaml $ressources | nindent 12 }}
           {{- end}}
-          {{- if .Values.livenessProbe.enabled }}
+          {{- if .Values.livenessProbeEnabled }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           {{- end}}
-          {{- if .Values.readinessProbe.enabled }}
+          {{- if .Values.readinessProbeEnabled }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           {{- end}}

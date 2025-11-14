@@ -38,8 +38,8 @@ pdb:
   minAvailable: ''
   maxUnavailable: ''
 replicaCount: 1
+livenessProbeEnabled: true
 livenessProbe:
-  enabled: true
   tcpSocket:
     port: 7860
   initialDelaySeconds: 60
@@ -47,8 +47,8 @@ livenessProbe:
   timeoutSeconds: 5
   failureThreshold: 3
   successThreshold: 1
+readinessProbeEnabled: false
 readinessProbe:
-  enabled: false
   tcpSocket:
     port: 7860
   initialDelaySeconds: 30
