@@ -9,10 +9,10 @@ RUN pip config set global.index-url "${PIP_INDEX}" && \
     pip install --no-input --no-cache-dir --upgrade pip
 
 # Upgrade tourch
-RUN pip install  --no-input --no-cache-dir \
-    torch==2.7.1 \
-    torchvision==0.22.1 \
-    torchaudio==2.7.1
+# RUN pip install  --no-input --no-cache-dir \
+#     torch==2.7.1 \
+#     torchvision==0.22.1 \
+#     torchaudio==2.7.1
 
 # Install python dependencies, reference: https://github.com/hiyouga/LLaMA-Factory/blob/main/setup.py
 RUN pip install --no-input --no-cache-dir \
@@ -21,7 +21,7 @@ RUN pip install --no-input --no-cache-dir \
     'bitsandbytes>=0.39.0' \
     hqq \
     # eetq \
-    # 'optimum>=1.24.0', 'gptqmodel>=2.0.0' \
+    # 'optimum>=1.24.0' 'gptqmodel>=2.0.0' \
     'aqlm[gpu]>=1.1.0' \
     'vllm>=0.4.3,<=0.11.0' \
     # 'sglang[srt]>=0.4.5' 'transformers==4.51.1' \
@@ -31,8 +31,7 @@ RUN pip install --no-input --no-cache-dir \
     adam-mini \
     soundfile vector_quantize_pytorch vocos msgpack referencing jsonschema_specifications \
     swanlab \
-    'torchao>=0.8.0' 'accelerate>=1.10.0' \
-    unsloth
+    'torchao>=0.8.0' 'accelerate>=1.10.0'
 
 
 # Install modelscope dependencies (downgrade some packages)
